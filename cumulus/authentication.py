@@ -59,7 +59,7 @@ class Auth(object):
     def _get_connection(self):
         if not hasattr(self, "_connection"):
             if self.use_pyrax:
-                self._connection = pyrax.connect_to_cloudfiles(public=True)
+                self._connection = pyrax.connect_to_cloudfiles(region=self.region, public=True)
             else:
                 self._connection = swiftclient.Connection(
                     authurl=self.auth_url,
