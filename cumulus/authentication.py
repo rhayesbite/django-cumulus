@@ -65,7 +65,8 @@ class Auth(object):
                     authurl=self.auth_url,
                     user=self.username,
                     key=self.api_key,
-                    snet=self.servicenet,
+                    snet=self.use_snet,
+                    os_options={'region_name': self.region},
                     auth_version=self.auth_version,
                     tenant_name=self.auth_tenant_name,
                 )
@@ -85,6 +86,7 @@ class Auth(object):
             "api_key": self.api_key,
             "container_name": self.container_name,
             "use_snet": self.use_snet,
+            "os_options": {'region_name': self.region},
             "connection_kwargs": self.connection_kwargs
         }
 
